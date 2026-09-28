@@ -17,12 +17,13 @@
         "backgroundImage": "./assets/images/android-icon-background.png",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.wirebot34.client"
     },
     "web": {
       "output": "static",
       "favicon": "./assets/images/favicon.png",
-       "bundler": "metro"
+      "bundler": "metro"
     },
     "plugins": [
       "expo-router",
@@ -38,6 +39,12 @@
     "experiments": {
       "typedRoutes": true,
       "reactCompiler": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "52081aa8-f3cd-410b-ac6f-6da590622ecb"
+      }
     }
   }
 }

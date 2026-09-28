@@ -132,7 +132,7 @@ export default function Home() {
           {loading ? (
             <ActivityIndicator size="large" />
           ) : (
-            <View>
+            <View className="flex-row flex-wrap justify-between">
               {products.slice(0, 4).map((product) => (
                 <ProductCard key={product._id} product={product} />
               ))}

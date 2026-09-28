@@ -139,6 +139,22 @@ export default function Home() {
             </View>
           )}
         </View>
+
+        {/* Newsletter CTA */}
+
+        <View className="bg-gray-100 p-6 rounded-2xl mb-20 items-center">
+          <Text className="text-2xl font-bold text-primary mb-2 text-center">
+            Join The Rev
+          </Text>
+          <Text className="text-secondary text-center mb-4">
+            Subscribe to our newsletter and we will get into your house at night
+          </Text>
+          <TouchableOpacity className="bg-primary w-4/5 py-3 rounded-full items-center">
+            <Text className="text-white font-medium text-base">
+              Subscribe Now
+            </Text>
+          </TouchableOpacity>
+        </View>
       </ScrollView>
     </SafeAreaView>
   );

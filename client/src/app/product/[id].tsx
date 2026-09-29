@@ -115,6 +115,21 @@ export default function ProductDetails() {
             ))}
           </View>
         </View>
+
+        {/* Product Info */}
+        <View className="px-5">
+          {/* Product Title nd rating */}
+          <View className="flex-row justify-between items-start mb-2">
+            <Text className="text-2xl font-bold text-primary flex-1 mr-4">
+              {product.name}
+            </Text>
+            <View className="flex-row justify-between items-start mb-2">
+              <Ionicons name="star" size={14} color="#FFD700" />
+              <Text className="text-sm font-bold ml-1">4.6</Text>
+              <Text className="text-xs text-secondary ml-1">(85)</Text>
+            </View>
+          </View>
+        </View>
       </ScrollView>
     </View>
   );

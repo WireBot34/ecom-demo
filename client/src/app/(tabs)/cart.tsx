@@ -30,6 +30,15 @@ export default function Cart() {
               />
             ))}
           </ScrollView>
+
+          <View className="p-4 bg-white rounded-t-3xl shadow-sm">
+            {/* Subtotal */}
+            <View className="flex-row justify-between mb-2">
+              <Text className="text-secondary">Subtotal</Text>
+              <Text className="text-primary font-bold">${cartTotal.toFixed(2)}</Text>
+            </View>
+            
+          </View>
         </>
       ) : (
         <View className="flex-1 items-center justify-center">

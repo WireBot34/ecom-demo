@@ -5,6 +5,7 @@ import {
   ScrollView,
   Image,
   Dimensions,
+  TouchableOpacity,
 } from "react-native";
 import React, { useEffect, useState } from "react";
 import { useLocalSearchParams, useRouter } from "expo-router";
@@ -14,6 +15,7 @@ import { dummyProducts } from "@/assets/assets";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { COLORS } from "../../../constants";
 import { Product } from "../../../constants/types";
+import { Ionicons } from "@expo/vector-icons";
 
 const { width } = Dimensions.get("window");
 
@@ -66,6 +68,13 @@ export default function ProductDetails() {
             pagingEnabled
             showsHorizontalScrollIndicator={false}
             scrollEventThrottle={16}
+            onScroll={(e) => {
+              const slide = Math.ceil(
+                e.nativeEvent.contentOffset.x /
+                  e.nativeEvent.layoutMeasurement.width,
+              );
+              setActiveImageIndex(slide);
+            }}
           >
             {product.images?.map((img, index) => (
               <Image
@@ -76,6 +85,35 @@ export default function ProductDetails() {
               />
             ))}
           </ScrollView>
+          {/* Header Action */}
+          <View className="absolute top-12 left-4 right-4 flex-row justify-between items-center z-10">
+            <TouchableOpacity
+              onPress={() => router.back()}
+              className="w-10 h-10 bg-white/80 rounded-full items-center justify-center"
+            >
+              <Ionicons name="arrow-back" size={24} color={COLORS.primary} />
+            </TouchableOpacity>
+            <TouchableOpacity
+              onPress={() => toggleWishlist(product)}
+              className="w-10 h-10 bg-white/80 rounded-full items-center justify-center"
+            >
+              <Ionicons
+                name={isLiked ? "heart" : "heart-outline"}
+                size={24}
+                color={isLiked ? COLORS.accent : COLORS.primary}
+              />
+            </TouchableOpacity>
+          </View>
+
+          {/* Pagination Dots */}
+          <View className="absolute bottom-4 left-0 right-0 flex-row justify-center gap-2">
+            {product.images?.map((_, index) => (
+              <View
+                key={index}
+                className={`h-2 rounded-full ${index === activeImageIndex ? "w-6 bg-primary" : "w-2 bg-gray-300"}`}
+              />
+            ))}
+          </View>
         </View>
       </ScrollView>
     </View>

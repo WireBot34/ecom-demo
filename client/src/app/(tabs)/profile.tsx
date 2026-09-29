@@ -62,6 +62,15 @@ export default function Profile() {
               <Text className="text-secondary text-sm">
                 {user.emailAddresses[0].emailAddress}
               </Text>
+              {/* Admin pannel Button if user is Admin */}
+              {user.publicMetadata?.role === "admin" && (
+                <TouchableOpacity
+                  onPress={() => router.push("/admin")}
+                  className="mt-4 bg-primary px-6 py-2 rounded-full"
+                >
+                  <Text className="text-white font-bold">Admin Panel</Text>
+                </TouchableOpacity>
+              )}
             </View>
           </>
         )}

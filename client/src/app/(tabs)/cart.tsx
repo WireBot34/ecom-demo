@@ -11,6 +11,9 @@ export default function Cart() {
   const { cartItems, cartTotal, removeFromCart, updateQuantity } = useCart();
   const router = useRouter();
 
+  const shipping = 2.0;
+  const total = cartTotal + shipping;
+
   return (
     <SafeAreaView className="flex-1 bg-surface" edges={["top"]}>
       <Header title="My Cart" showBack />
@@ -35,7 +38,16 @@ export default function Cart() {
             {/* Subtotal */}
             <View className="flex-row justify-between mb-2">
               <Text className="text-secondary">Subtotal</Text>
-              <Text className="text-primary font-bold">${cartTotal.toFixed(2)}</Text>
+              <Text className="text-primary font-bold">
+                ${cartTotal.toFixed(2)}
+              </Text>
+            </View>
+            {/* Shipping */}
+            <View className="flex-row justify-between mb-2">
+              <Text className="text-secondary">Shipping</Text>
+              <Text className="text-primary font-bold">
+                ${shipping.toFixed(2)}
+              </Text>
             </View>
             
           </View>

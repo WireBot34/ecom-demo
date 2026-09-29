@@ -26,7 +26,7 @@ export default function Home() {
   const [products, setProducts] = React.useState<Product[]>([]);
   const [loading, setLoading] = React.useState(true);
 
-  const categories = [{ id: "all", name: "ALL", icon: "GRID" }, ...CATEGORIES];
+  const categories = [{ id: "all", name: "ALL", icon: "grid" }, ...CATEGORIES];
 
   const fetchProducts = async () => {
     setProducts(dummyProducts);

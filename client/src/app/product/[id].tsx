@@ -156,6 +156,15 @@ export default function ProductDetails() {
               </View>
             </>
           )}
+
+          {/* Description */}
+          <Text className="text-base font-bold text-primary mb-2">
+            Description
+          </Text>
+
+          <Text className="text-secondary leading-6 mb-6">
+            {product.description}
+          </Text>
         </View>
       </ScrollView>
     </View>

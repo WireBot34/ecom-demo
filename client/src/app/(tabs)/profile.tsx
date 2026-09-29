@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import { dummyUser } from "@/assets/assets";
 import { useRouter } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
-import { COLORS } from "../../../constants";
+import { COLORS, PROFILE_MENU } from "../../../constants";
 
 export default function Profile() {
   const { user } = { user: dummyUser };
@@ -71,6 +71,32 @@ export default function Profile() {
                   <Text className="text-white font-bold">Admin Panel</Text>
                 </TouchableOpacity>
               )}
+            </View>
+            {/* Menu */}
+            <View className="bg-white rounded-xl border border-gray-100/75 p-2 mb-4">
+              {PROFILE_MENU.map((items, index) => (
+                <TouchableOpacity
+                  key={items.id}
+                  className={`flex-row items-center p-4 ${index !== PROFILE_MENU.length - 1 ? "border-b border-gray-100" : ""}`}
+                  onPress={() => router.push(items.route as any)}
+                >
+                  <View className="w-10 h-10 bg-surface rounded-full items-center justify-center mr-4">
+                    <Ionicons
+                      name={items.icon as any}
+                      size={20}
+                      color={COLORS.primary}
+                    />
+                  </View>
+                  <Text className="flex-1 text-primary font-medium">
+                    {items.title}
+                  </Text>
+                  <Ionicons
+                    name="chevron-forward"
+                    size={20}
+                    color={COLORS.secondary}
+                  />
+                </TouchableOpacity>
+              ))}
             </View>
           </>
         )}

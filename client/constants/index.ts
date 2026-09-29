@@ -9,11 +9,11 @@ export const COLORS = {
 };
 
 export const CATEGORIES = [
-    { id: 1, name: "Men", icon: "man-outline" },
-    { id: 2, name: "Women", icon: "woman-outline" },
-    { id: 3, name: "Kids", icon: "happy-outline" },
-    { id: 4, name: "Shoes", icon: "footsteps-outline" },
-    { id: 5, name: "Bag", icon: "briefcase-outline" },
+    { id: 1, name: "Mobile", icon: "phone-portrait-outline" },
+    { id: 2, name: "Laptop", icon: "laptop-outline" },
+    { id: 3, name: "TV", icon: "tv-outline" },
+    { id: 4, name: "Printer", icon: "print-outline" },
+    { id: 5, name: "Electronics", icon: "logo-electron" },
     { id: 6, name: "Other", icon: "grid-outline" },
 ];
 

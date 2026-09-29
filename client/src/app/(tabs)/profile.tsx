@@ -10,6 +10,9 @@ import { COLORS, PROFILE_MENU } from "../../../constants";
 export default function Profile() {
   const { user } = { user: dummyUser };
   const router = useRouter();
+  const handleLogout = async () => {
+    router.replace("/sign-in");
+  };
 
   return (
     <SafeAreaView className="flex-1 bg-surface" edges={["top"]}>
@@ -98,6 +101,14 @@ export default function Profile() {
                 </TouchableOpacity>
               ))}
             </View>
+            {/* Logout Button */}
+
+            <TouchableOpacity
+              className="flex-row items-center justify-center p-4"
+              onPress={handleLogout}
+            >
+              <Text className="text-red-500 font-bold ml-2">Logout</Text>
+            </TouchableOpacity>
           </>
         )}
       </ScrollView>

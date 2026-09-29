@@ -49,7 +49,15 @@ export default function Cart() {
                 ${shipping.toFixed(2)}
               </Text>
             </View>
-            
+            {/* border */}
+            <View className="h-[1px] bg-border mb-4 " />
+            {/* Total */}
+            <View className="flex-row justify-between mb-6">
+              <Text className="text-primary font-bold text-lg">Total</Text>
+              <Text className="text-primary font-bold text-lg">
+                ${total.toFixed(2)}
+              </Text>
+            </View>
           </View>
         </>
       ) : (

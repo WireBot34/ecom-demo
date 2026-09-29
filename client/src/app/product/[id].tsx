@@ -16,6 +16,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { COLORS } from "../../../constants";
 import { Product } from "../../../constants/types";
 import { Ionicons } from "@expo/vector-icons";
+import Toast from "react-native-toast-message";
 
 const { width } = Dimensions.get("window");
 
@@ -60,6 +61,11 @@ export default function ProductDetails() {
 
   const handleAddToCart = ()=>{
     if(!selectedSize){
+      Toast.show({
+        type: 'info',
+        text1: 'No Size Selected',
+        text2: 'Please Select a Size'
+      })
       return;
     }
     addToCart(product, selectedSize || "")

@@ -2,6 +2,7 @@ import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
 import { CartItemProps } from "../../constants/types";
 import { Ionicons } from "@expo/vector-icons";
+import { COLORS } from "../../constants";
 
 export default function CartItem({
   item,
@@ -32,6 +33,37 @@ export default function CartItem({
           <TouchableOpacity>
             <Ionicons name="close-circle-outline" size={20} color="#FF4C3B" />
           </TouchableOpacity>
+        </View>
+        {/* Price and Quantity */}
+
+        <View className="flex-row justify-between items-center mt-2">
+          <Text className="text-primary font-bold text-base">
+            ${item.product.price.toFixed(2)}
+          </Text>
+
+          <View className="flex-row items-center bg-surface rounded-full px-2 py-1">
+            <TouchableOpacity
+              className="p-1"
+              onPress={() =>
+                onUpdateQuantity && onUpdateQuantity(item.quantity - 1)
+              }
+            >
+              <Ionicons name="remove" size={16} color={COLORS.primary} />
+            </TouchableOpacity>
+
+            <Text className="text-primary font-medium mx-3">
+              {item.quantity}
+            </Text>
+
+            <TouchableOpacity
+              className="p-1"
+              onPress={() =>
+                onUpdateQuantity && onUpdateQuantity(item.quantity + 1)
+              }
+            >
+              <Ionicons name="add" size={16} color={COLORS.primary} />
+            </TouchableOpacity>
+          </View>
         </View>
       </View>
     </View>

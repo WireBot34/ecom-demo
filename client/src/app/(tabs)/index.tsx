@@ -111,7 +111,7 @@ export default function Home() {
                 isSelected={false}
                 onPress={() =>
                   router.push({
-                    pathname: "/",
+                    pathname: "/shop",
                     params: { category: cat.id === "all" ? "" : cat.name },
                   })
                 }
@@ -124,7 +124,7 @@ export default function Home() {
         <View className="mb-8">
           <View className="flex-row justify-between items-center mb-4">
             <Text className="text-xl font-bold text-primary">Popular</Text>
-            <TouchableOpacity onPress={() => router.push("/")}>
+            <TouchableOpacity onPress={() => router.push("/shop")}>
               <Text className="text-secondary text-sm">See All</Text>
             </TouchableOpacity>
           </View>

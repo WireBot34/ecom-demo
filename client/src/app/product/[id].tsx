@@ -33,13 +33,14 @@ export default function ProductDetails() {
   const [activeImageIndex, setActiveImageIndex] = useState(0);
 
   const fetchProduct = async () => {
-    setProduct(dummyProducts.find((product) => product._id === id) as any);
+    const found: any = dummyProducts.find((product) => product._id === id);
+    setProduct(found ?? null);
     setLoading(false);
   };
 
   useEffect(() => {
     fetchProduct();
-  }, []);
+  }, [id]);
 
   if (loading) {
     return (
@@ -59,18 +60,17 @@ export default function ProductDetails() {
 
   const isLiked = isInWishlist(product._id);
 
-  const handleAddToCart = ()=>{
-    if(!selectedSize){
+  const handleAddToCart = () => {
+    if (!selectedSize) {
       Toast.show({
-        type: 'info',
-        text1: 'No Size Selected',
-        text2: 'Please Select a Size'
-      })
+        type: "info",
+        text1: "No Size Selected",
+        text2: "Please Select a Size",
+      });
       return;
     }
-    addToCart(product, selectedSize || "")
-  }
-
+    addToCart(product, selectedSize || "");
+  };
 
   return (
     <View className="flex-1 bg-white">
@@ -184,13 +184,19 @@ export default function ProductDetails() {
 
       {/* Footer */}
       <View className="absolute bottom-0 left-0 flex-row right-0 p-4 bg-white border-t border-gray-100">
-        <TouchableOpacity onPress={handleAddToCart} className="w-4/5 bg-primary py-4 rounded-full items-center shadow-lg flex-row justify-center">
+        <TouchableOpacity
+          onPress={handleAddToCart}
+          className="w-4/5 bg-primary py-4 rounded-full items-center shadow-lg flex-row justify-center"
+        >
           <Ionicons name="bag-outline" size={20} color="white" />
           <Text className="text-white font-bold text-base ml-2">
             Add To Cart
           </Text>
         </TouchableOpacity>
-        <TouchableOpacity onPress={()=> router.push("/(tabs)/cart")} className="w-1/5 py-3 flex-row justify-center relative">
+        <TouchableOpacity
+          onPress={() => router.push("/(tabs)/cart")}
+          className="w-1/5 py-3 flex-row justify-center relative"
+        >
           <Ionicons name="cart-outline" size={24} />
           <View className="absolute top-2 right-4 size-4 z-10 bg-black rounded-full justify-center items-center">
             <Text className="text-white text-[9px]">{itemCount}</Text>

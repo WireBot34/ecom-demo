@@ -58,6 +58,14 @@ export default function Cart() {
                 ${total.toFixed(2)}
               </Text>
             </View>
+            {/* checkout button */}
+
+            <TouchableOpacity
+              className="bg-primary py-4 rounded-full items-center"
+              onPress={() => router.push("/checkout")}
+            >
+              <Text className="text-white font-bold text-base">Checkout</Text>
+            </TouchableOpacity>
           </View>
         </>
       ) : (

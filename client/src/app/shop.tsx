@@ -1,4 +1,10 @@
-import { View, Text, TextInput, TouchableOpacity } from "react-native";
+import {
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  ActivityIndicator,
+} from "react-native";
 import React, { useEffect, useState } from "react";
 import { Product } from "../../constants/types";
 import { dummyProducts } from "@/assets/assets";
@@ -6,6 +12,8 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import Header from "@/components/Header";
 import { Ionicons } from "@expo/vector-icons";
 import { COLORS } from "../../constants";
+import { FlatList } from "react-native-gesture-handler";
+import ProductCard from "@/components/ProductCard";
 
 export default function Shop() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -67,6 +75,7 @@ export default function Shop() {
             className="flex-1 ml-2 text-primary px-4 py-3"
             placeholder="Search Products"
             returnKeyType="search"
+            placeholderTextColor={COLORS.secondary}
           />
         </View>
 
@@ -75,6 +84,36 @@ export default function Shop() {
           <Ionicons name="options-outline" size={24} color="white" />
         </TouchableOpacity>
       </View>
+      {loading ? (
+        <View className="flex-1 justify-center items-center">
+          <ActivityIndicator size={"large"} color={COLORS.primary} />
+        </View>
+      ) : (
+        <FlatList
+          data={products}
+          keyExtractor={(item) => item._id}
+          numColumns={2}
+          contentContainerStyle={{ padding: 16, paddingBottom: 100 }}
+          columnWrapperStyle={{ justifyContent: "space-between" }}
+          renderItem={({ item }) => <ProductCard product={item} />}
+          onEndReached={loadMore}
+          onEndReachedThreshold={0.5}
+          ListFooterComponent={
+            loadingMore ? (
+              <View>
+                <ActivityIndicator size={"small"} color={COLORS.primary} />
+              </View>
+            ) : null
+          }
+          ListEmptyComponent={
+            !loading && (
+              <View className="flex-1 items-center justify-center py-20">
+                <Text className="text-secondary">No Products Found</Text>
+              </View>
+            )
+          }
+        />
+      )}
     </SafeAreaView>
   );
 }

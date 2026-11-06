@@ -1,12 +1,12 @@
 import { View, Text, ScrollView } from "react-native";
 import React from "react";
-import { useWishlist } from "../../../context/WishlistContext";
+import { useWishlist } from "@/context/WishlistContext";
 import { useRouter } from "expo-router";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Header from "@/components/Header";
 import { TouchableOpacity } from "react-native";
 import ProductCard from "@/components/ProductCard";
-import { Product } from "../../../constants/types";
+import { Product } from "@/constants/types";
 
 export default function Fvaorites() {
   const { wishlist } = useWishlist();

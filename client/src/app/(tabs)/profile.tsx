@@ -5,7 +5,7 @@ import Header from "@/components/Header";
 import { dummyUser } from "@/assets/assets";
 import { useRouter } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
-import { COLORS, PROFILE_MENU } from "../../../constants";
+import { COLORS, PROFILE_MENU } from "@/constants";
 
 export default function Profile() {
   const { user } = { user: dummyUser };

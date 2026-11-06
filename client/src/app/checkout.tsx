@@ -1,11 +1,11 @@
 import { View, Text, ActivityIndicator, TouchableOpacity } from "react-native";
 import React, { useEffect, useState } from "react";
-import { useCart } from "../../context/CartContext";
+import { useCart } from "@/context/CartContext";
 import { useRouter } from "expo-router";
-import { Address } from "../../constants/types";
+import { Address } from "@/constants/types";
 import { dummyAddress } from "@/assets/assets";
 import { Toast } from "react-native-toast-message/lib/src/Toast";
-import { COLORS } from "../../constants";
+import { COLORS } from "@/constants";
 import Header from "@/components/Header";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { ScrollView } from "react-native-gesture-handler";

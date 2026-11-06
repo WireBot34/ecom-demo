@@ -1,10 +1,10 @@
 import { View, Text, Image, TouchableOpacity } from "react-native";
 import React from "react";
-import { ProductCardProps } from "../../constants/types";
+import { ProductCardProps } from "@/constants/types";
 import { Link } from "expo-router";
 import { Ionicons } from "@expo/vector-icons";
-import { COLORS } from "../../constants";
-import { useWishlist } from "../../context/WishlistContext";
+import { COLORS } from "@/constants";
+import { useWishlist } from "@/context/WishlistContext";
 
 export default function ProductCard({ product }: ProductCardProps) {
   const { toggleWishlist, isInWishlist } = useWishlist();

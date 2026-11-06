@@ -1,8 +1,8 @@
 import { View, Text, TouchableOpacity, Image } from "react-native";
 import React from "react";
-import { HeaderProps } from "../../constants/types";
+import { HeaderProps } from "@/constants/types";
 import Ionicons from "@expo/vector-icons/build/Ionicons";
-import { COLORS } from "../../constants";
+import { COLORS } from "@/constants";
 import { useRouter } from "expo-router";
 
 export default function Header({

@@ -5060,3 +5060,30 @@ export const dummyAdminStats = {
     totalRevenue: 380,
     recentOrders: dummyOrders,
 };
+
+export const dummyAddress = [
+    {
+        _id: "6985ab44a309ee0204588085",
+        user: "69819801a872c913f84d13f4",
+        type: "Home",
+        street: "124 Main Street , Volley Market",
+        city: "New York",
+        state: "NY",
+        zipCode: "100001",
+        country: "USA",
+        isDefault: false,
+        createdAt: "2026-02-06T08:50:12.856Z",
+    },
+    {
+        _id: "6985ab44a309ee0204588086",
+        user: "69819801a872c913f84d13f4",
+        type: "Office",
+        street: "Z Block, Millin Street",
+        city: "New York",
+        state: "NY",
+        zipCode: "100001",
+        country: "USA",
+        isDefault: false,
+        createdAt: "2026-02-06T08:50:12.856Z",
+    },
+];
